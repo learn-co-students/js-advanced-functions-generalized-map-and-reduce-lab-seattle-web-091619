@@ -7,18 +7,18 @@ const map = (arr, fn) => {
   return newArr;
 }
 
-function reduce(array, applyFunction, startPoint){
+function reduce(arr, fn, start){
   let i = 0;
-  let accumulatingVariable = 0;
-  if (startPoint !== undefined){
+  let accumulator = 0;
+  if (start !== undefined){
       i = 0;
-      accumulatingVariable = startPoint;
+      accumulator = start;
   } else {
-      accumulatingVariable = array[0];
+      accumulator = arr[0];
       i = 1;
   }
-  for(; i<array.length; i++){
-      accumulatingVariable = applyFunction(accumulatingVariable, array[i])
+  for(; i<arr.length; i++){
+      accumulator = fn(accumulator, arr[i])
   }
-  return accumulatingVariable;
+  return accumulator;
 }  
